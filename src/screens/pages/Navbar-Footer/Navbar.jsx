@@ -21,7 +21,7 @@ const Navbar = () => {
   }, []);
 
   return (
-    <div className={`w-5/6 mx-auto ${isSticky ? 'shadow-lg py-2' : 'py-5 '} transition-all duration-300 bg-white sticky top-0 z-10 items-center border-b-2 border-gray-300 rounded-lg px-[4%] duration-400`}>
+    <div className={`w-5/6 mx-auto ${isSticky ? 'shadow-lg py-2' : 'py-5 '} rounded-lg transition-all duration-300 bg-white sticky top-0 z-10 items-center  px-[4%] duration-400`}>
         <div className="container mx-auto flex flex-wrap items-center justify-between">
           <a href="#" className="flex">
             <span className="self-center text-lg font-Outfit whitespace-nowrap text-myOrange">FIT <span className='text-headersBlue'> PLATTTER</span></span>
