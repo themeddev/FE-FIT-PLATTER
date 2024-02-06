@@ -7,6 +7,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Navbar from './screens/pages/Navbar-Footer/Navbar';
 import Test from './screens/test';
 import HeroApp from './screens/pages/Hero/HeroApp';
+import Footer from './screens/pages/Navbar-Footer/Footer';
 
 function App() {
 
@@ -22,6 +23,8 @@ function App() {
       {/* <Home /> */}
       {/* <Test /> */}
       <HeroApp />
+
+      <Footer />
 
 
     </Router>
