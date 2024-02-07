@@ -1,6 +1,6 @@
 import { IoMdArrowBack, IoMdArrowForward } from "react-icons/io";
 import { useState, useRef } from "react";
-
+import { motion } from 'framer-motion';
 const Comments = () => {
   const CardContent = [
     {
@@ -55,13 +55,19 @@ const Comments = () => {
   };
 
   return (
-    <div className="w-full h-[600px] md:h-[442px] flex flex-col md:flex-row justify-between md:px-[8%] items-center bg-[#FFF6EA] ">
-      <div className="max-w-[450px] mx-10 md:mb-10 mt-5">
+    <div className="w-full h-[600px] lg:h-[442px] flex flex-col lg:flex-row justify-between lg:px-[8%] items-center bg-[#FFF6EA] ">
+      <motion.div 
+        className="max-w-[450px] mx-10 lg:mb-10 mt-5"
+        initial={{ x: -1 , opacity: 0}}
+        animate={{x: 0, opacity : 1}}
+        transition={{ delay: 0.4 }}
+      >
         <h3 className="font-Outfit text-3xl text-[#333333] mb-4">
           What Are People <br /> Saying{" "}
           <span className="text-myOrange">About Us</span>
         </h3>
-        <p>
+        <p
+        >
           We are very happy if you are satisfied with our service and products,
           let's read pure reviews from customers who bought our products.
         </p>
@@ -90,9 +96,14 @@ const Comments = () => {
             <IoMdArrowForward className="mx-auto" />
           </div>
         </div>
-      </div>
+      </motion.div>
 
-      <div className="flex flex-wrap overflow-x-hidden items-center justify-center gap-3">
+      <motion.div 
+        className="flex flex-wrap overflow-x-hidden items-center justify-center gap-3"
+        initial={{ x: -1 , opacity: 0}}
+        animate={{x: 0, opacity : 1}}
+        transition={{ delay: 0.6 }} 
+      >  
         <div className="carousel carousel-center max-w-md p-4 space-x-2 rounded-box">
           <div className="carousel-item">
             {CardContent &&
@@ -126,7 +137,7 @@ const Comments = () => {
               ))}
           </div>
         </div>
-      </div>
+      </motion.div>
     </div>
   );
 };
