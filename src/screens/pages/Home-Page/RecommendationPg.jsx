@@ -7,7 +7,7 @@ const RecommendationPg = () => {
             className="w-3/5 h-full flex flex-col items-center text-center mx-auto my-12"
             animate={{ opacity : 100 }} 
             initial={{ opacity : 0 }} 
-            transition={{ delay: 0.5 }}
+            transition={{ delay: 0.4 }}
         >
             
             <h3 className="font-Outfit text-2xl text-headersBlue font-semibold">
@@ -20,4 +20,5 @@ const RecommendationPg = () => {
      );
 }
  
+
 export default RecommendationPg;

@@ -1,6 +1,6 @@
 import { HiMiniHomeModern } from "react-icons/hi2";
 import { PiNumberSquareOneFill } from "react-icons/pi";
-import { MdNature } from "react-icons/md";
+import { RiTimerFill } from "react-icons/ri";
 import { motion } from 'framer-motion'
 const WhyUs = () => {
   const cardContent = [
@@ -15,9 +15,9 @@ const WhyUs = () => {
       description: 'Because it\'s about motivating the doers. Because I\'m here to follow my dreams and inspire others.',
     },
     {
-      icon: <MdNature size={35} />,
-      title: 'Natural Plant',
-      description: 'Because it\'s about motivating the doers. Because I\'m here to follow my dreams and inspire others.',
+      icon: <RiTimerFill size={35} />,
+      title: 'Time Saver',
+      description: 'Efficiency redefined – our service empowers you to save time and take action on your dreams.',
     },
   ];
 

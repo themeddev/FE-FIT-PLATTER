@@ -1,57 +1,58 @@
 import { useState } from 'react';
 import { ArrowRightIcon } from '@heroicons/react/24/solid'
+import { useNavigate, Link } from 'react-router-dom';
 
-
-
-export default function SingInForm() {
+export default function SignInForm() {
   // Initialize the state with empty values and errors
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
   const [errors, setErrors] = useState({
     email: '',
-    password: ''
-  })
-  // const navigate = useNavigate();
+    password: '',
+  });
+
+  const navigate = useNavigate();
 
   // Handle the change of the input values
   const handleChange = (event) => {
     // Get the name and value of the input
-    const [name, value] = event.target.name
+    const { name, value } = event.target;
 
     // Set the state with the new value
     if (name === 'email') {
-      setEmail(value)
+      setEmail(value);
     } else if (name === 'password') {
-      setPassword(value)
+      setPassword(value);
     }
-  }
+  };
 
   // Handle the submission of the form
   const handleSubmit = (event) => {
     // Prevent the default behavior of the form
-    event.preventDefault()
+    event.preventDefault();
 
     // Validate the input values
-    const errors = {}
+    const errors = {};
 
     // Check if the email is valid
     if (!email.match(/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/)) {
-      errors.email = 'Please enter a valid email address'
+      errors.email = 'Please enter a valid email address';
     }
 
     // Check if the password is not empty
     if (!password) {
-      errors.password = 'Please enter a password'
+      errors.password = 'Please enter a password';
     }
 
     // Set the state with the errors
-    setErrors(errors)
+    setErrors(errors);
 
     // If there are no errors, submit the form
     if (Object.keys(errors).length === 0) {
-      alert('Form submitted successfully')
+      // alert('Form submitted successfully');
+      navigate('/home');
     }
-  }
+  };
 
   // Render the component
   return (
@@ -61,7 +62,9 @@ export default function SingInForm() {
         <h2 className="text-4xl font-Outfit text-myBlue">Sign in</h2>
         <form onSubmit={handleSubmit} className="mt-4">
           <div className="mb-5">
-            <label htmlFor="email" className="block mb-2 text-sm font-medium text-gray-700">Email</label>
+            <label htmlFor="email" className="block mb-2 text-sm font-medium text-gray-700">
+              Email
+            </label>
             <input
               type="email"
               id="email"
@@ -74,7 +77,9 @@ export default function SingInForm() {
             <p className="mt-1 text-xs text-red-500">{errors.email}</p>
           </div>
           <div className="mb-4">
-            <label htmlFor="password" className="block mb-2 text-sm font-medium text-gray-700">Password</label>
+            <label htmlFor="password" className="block mb-2 text-sm font-medium text-gray-700">
+              Password
+            </label>
             <input
               type="password"
               id="password"
@@ -85,18 +90,27 @@ export default function SingInForm() {
               className="w-full px-3 py-2 bg-InputBg border border-InputBg rounded-md outline-none focus:border-[#FC6212]"
             />
             <p className="mt-1 text-xs text-red-500">{errors.password}</p>
-            <a href="#" className="block mt-1 text-sm text-right text-gray-400 hover:underline">Forgot password?</a>
+            <Link to="/forget-password" className="block mt-1 text-sm text-right text-gray-400 hover:underline">
+              Forgot password?
+            </Link>
           </div>
           <div className="flex items-center justify-center">
-            <button type="submit" className="w-1/2 px-3 py-1.5 font-Poppins text-white bg-[#FC6212] rounded-full hover:bg-orange-600 flex items-center justify-center">
+            <button
+              type="submit"
+              className="w-1/2 px-3 py-1.5 font-Poppins text-white bg-[#FC6212] rounded-full hover:bg-orange-600 flex items-center justify-center"
+            >
               SIGN IN
               <ArrowRightIcon className="w-3 h-3 ml-1" />
             </button>
           </div>
-
         </form>
-        <p className="mt-4 text-sm text-center text-gray-400">I don't have an account ? <a href="#" className="text-[#FC6212] hover:underline">Sign up</a></p>
+        <p className="mt-4 text-sm text-center text-gray-400">
+          I don't have an account ?{' '}
+          <Link to="/sign-up" className="text-[#FC6212] hover:underline">
+            Sign up
+          </Link>
+        </p>
       </div>
     </div>
-  )
+  );
 }

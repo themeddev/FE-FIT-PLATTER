@@ -2,8 +2,9 @@ import { ArrowRightIcon, ArrowLeftIcon } from '@heroicons/react/24/solid';
 import { useState } from 'react';
 import Step1 from './Step1';
 import Step2 from './Step2';
+import { Link } from 'react-router-dom';
 
-const SignUpForm = () => {
+export default function() {
   const [step, setStep] = useState(true);
   const [formData, setFormData] = useState({});
 
@@ -99,13 +100,12 @@ const SignUpForm = () => {
 
         <p className="mt-4 text-sm text-center text-gray-400">
           Already a member?{' '}
-          <a href="#" className="text-[#FC6212] hover:underline">
+          <Link to="/sign-in" className="text-[#FC6212] hover:underline">
             Sign in
-          </a>
+          </Link>
         </p>
       </div>
     </div>
   );
 };
 
-export default SignUpForm;
