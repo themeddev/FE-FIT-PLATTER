@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import logo from '../../../../public/images/logo.png'
 
 const Navbar = () => {
   const [isSticky, setIsSticky] = useState(false);
@@ -24,7 +25,11 @@ const Navbar = () => {
       <div className={`border-5 border-green w-5/6 mx-auto ${isSticky ? 'shadow-lg py-2' : 'py-5 '} rounded-lg transition-all duration-300 bg-white fixed top-0 z-10 items-center px-[4%] duration-400`}>
       <div className="container mx-auto flex flex-wrap items-center justify-between">
         <Link to="/home" className="flex">
-          <span className="self-center text-lg font-Outfit whitespace-nowrap text-myOrange">FIT <span className='text-headersBlue'> PLATTER</span></span>
+          { isSticky ?    
+            <img src={logo} alt="logo" width={40} height={40} />
+            :
+            <span className="self-center text-lg font-Outfit whitespace-nowrap text-myOrange">FIT <span className='text-headersBlue'> PLATTER</span></span>   
+          }        
         </Link>
         <div className="flex md:order-2">
 
