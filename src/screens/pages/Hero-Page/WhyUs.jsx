@@ -23,7 +23,7 @@ const WhyUs = () => {
 
 
   return (
-    <div className="w-full h-full lg:h-[450px] bg-white flex items-center justify-arround flex-col p-[5%] lg:px-[10%]">
+    <div className="w-full h-full lg:h-[450px] bg-white flex items-center justify-arround my-6 flex-col p-[5%] lg:px-[10%]">
       <motion.div 
           initial={{ scaleZ: -100 , opacity: 0}}
           whileInView={{ opacity: 1, scaleZ: 0}}
@@ -36,7 +36,7 @@ const WhyUs = () => {
         <p className="text-gray-500 font-Poppins md:w-2/5 md:m-auto w-full">We continue to consistently choose and maintain the quality of the fruit served so that it remains fresh and nutritious when you eat it.</p>
       </motion.div>
 
-      <div className="flex flex-col lg:flex-row gap-4 px-[10%]">
+      <div className="flex flex-col lg:flex-row gap-10 pt-10 px-[10%]">
         {cardContent.map((item, index) => (
           <motion.div 
             initial={{ scaleZ: -100 , opacity: 0}}

@@ -55,9 +55,9 @@ const Comments = () => {
   };
 
   return (
-    <div className="w-full h-[600px] lg:h-[442px] flex flex-col lg:flex-row justify-between lg:px-[8%] items-center bg-[#FFF6EA] ">
+    <div className="w-full flex flex-col lg:flex-row justify-between lg:px-[10%] px-[1%] py-[5%] items-center bg-[#FFF6EA] ">
       <motion.div 
-        className="max-w-[450px] mx-10 lg:mb-10 mt-5"
+        className="max-w-[450px] ml-3"
         initial={{ x: -1 , opacity: 0}}
         animate={{x: 0, opacity : 1}}
         transition={{ delay: 0.4 }}
@@ -99,12 +99,12 @@ const Comments = () => {
       </motion.div>
 
       <motion.div 
-        className="flex flex-wrap overflow-x-hidden items-center justify-center gap-3"
+        className="flex flex-wrap overflow-x-hidden items-center justify-center"
         initial={{ x: -1 , opacity: 0}}
         animate={{x: 0, opacity : 1}}
         transition={{ delay: 0.6 }} 
       >  
-        <div className="carousel carousel-center max-w-md p-4 space-x-2 rounded-box">
+        <div className="carousel carousel-center lg:max-w-xl max-w-md p-4 space-x-3 rounded-box">
           <div className="carousel-item">
             {CardContent &&
               CardContent.map((item, index) => (
