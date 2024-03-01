@@ -3,11 +3,7 @@ import { motion } from 'framer-motion';
 import img from '../../../../public/images/hero.jpeg';
 import { Link } from "react-router-dom";
 
-
-
 const HeroSection = () => {
-
-
   return (
     <div className="md:max-w-[95%] h-full flex items-center mx-auto mb-12">
       <section
@@ -15,11 +11,12 @@ const HeroSection = () => {
         style={{
           backgroundImage: `url(${img})`,
           objectFit: 'cover',
+          backgroundAttachment: 'fixed', // Add this line
         }}
       >
         <motion.div 
-          animate={{x:0, opacity : 100}} 
-          initial={{x : -200 , opacity : 0}} 
+          animate={{ x: 0, opacity: 100 }} 
+          initial={{ x: -200, opacity: 0 }} 
           transition={{ delay: 0.3 }}
           className="container mx-auto text-left ml-[10%]"
         >
