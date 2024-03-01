@@ -1,65 +1,79 @@
 import { useEffect, useState } from 'react';
 
 const useFetch = () => {
-    const [foods, setFoods] = useState([])
-    const img = 'https://images.unsplash.com/photo-1588551650401-234f93734337?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
-    useEffect(() => {
-    //     fetch(foods)
-    //         .then(res => res.json())
-    //         .then(data => setFoods(data))
-    // }, [foods])
+    const [foods, setFoods] = useState([]);
+    const img = 'https://images.unsplash.com/photo-1588551650401-234f93734337?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D';
 
-            // Example food data
-        const initialFoodData = [ 
+    useEffect(() => {
+        // Example food data
+        const preWorkoutFoods = [
             {
-              category: "Breakfast",
-              calories: 525,
-              protein: 38,
-              carbs: 59,
-              fat: 15,
-              ingredients: [
-                "4-6 egg whites with 2 whole eggs",
-                "1 serving Cream of Wheat cereal",
-                "1 banana",
-              ],
-              image: img,
-              price: 10
-            },
-            {
-                category: "Lunch",
-                calories: 525,
-                protein: 38,
-                carbs: 59,
-                fat: 15,
+                category: "Pre-Workout",
+                calories: 400,
+                protein: 30,
+                carbs: 50,
+                fat: 10,
                 ingredients: [
-                  "4-6 egg whites with 2 whole eggs",
-                  "1 serving Cream of Wheat cereal",
-                  "5 banana",
+                    "Greek yogurt with berries",
+                    "Whole grain toast with almond butter",
+                    "Sliced apple"
                 ],
                 image: img,
-                price: 13
+                price: 8
             },
-              {
-                category: "Dinner",
-                calories: 234,
-                protein: 22,
-                carbs: 54,
-                fat: 5,
+            {
+                category: "Pre-Workout",
+                calories: 350,
+                protein: 25,
+                carbs: 40,
+                fat: 8,
                 ingredients: [
-                  "4-6 egg whites with 2 whole eggs",
-                  "1 serving Cream of Wheat cereal",
-                  "7 banana",
+                    "Banana smoothie with protein powder",
+                    "Oatmeal with sliced strawberries",
+                    "Hard-boiled eggs"
+                ],
+                image: img,
+                price: 7
+            },
+            // Add more pre-workout food items as needed
+        ];
+
+        const afterWorkoutFoods = [
+            {
+                category: "After-Workout",
+                calories: 600,
+                protein: 40,
+                carbs: 70,
+                fat: 15,
+                ingredients: [
+                    "Grilled chicken breast with quinoa",
+                    "Steamed broccoli and carrots",
+                    "Sweet potato wedges"
                 ],
                 image: img,
                 price: 12
-              },
-            // Add more food items as needed
+            },
+            {
+                category: "After-Workout",
+                calories: 500,
+                protein: 35,
+                carbs: 60,
+                fat: 12,
+                ingredients: [
+                    "Salmon with brown rice",
+                    "Mixed green salad with avocado",
+                    "Cottage cheese"
+                ],
+                image: img,
+                price: 10
+            },
+            // Add more after-workout food items as needed
         ];
 
-        setFoods([...initialFoodData,...initialFoodData,...initialFoodData, ...initialFoodData, ...initialFoodData]);
-    },[]);
+        setFoods([...preWorkoutFoods, ...afterWorkoutFoods, ...preWorkoutFoods, ...afterWorkoutFoods]);
+    }, []);
 
-    return [foods, setFoods]
-}
+    return [foods, setFoods];
+};
 
-export default useFetch
+export default useFetch;

@@ -1,10 +1,14 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import logo from '../../../../public/images/logo.png'
+import { MdShoppingBasket } from "react-icons/md";
 
-const Navbar = () => {
+
+const Navbar = ({setShowCart}) => {
   const [isSticky, setIsSticky] = useState(false);
+  const [isOpen, setIsOpen] = useState(false)
 
+  // Add sticky class to nav
   useEffect(() => {
     const handleScroll = () => {
       const scrollPosition = window.scrollY;
@@ -20,11 +24,14 @@ const Navbar = () => {
     };
   }, []);
 
+
+
+
   return (
-    <div className='flex justify-center h-20'>
+    <div className='flex justify-center h-20 '>
       <div className={`border-5 border-green w-5/6 mx-auto ${isSticky ? 'shadow-lg py-2' : 'py-5 '} rounded-lg transition-all duration-300 bg-white fixed top-0 z-10 items-center px-[4%] duration-400`}>
       <div className="container mx-auto flex flex-wrap items-center justify-between">
-        <Link to="/home" className="flex">
+        <Link to="/home" className="flex max-w-10">
           { isSticky ?    
             <img src={logo} alt="logo" width={40} height={40} />
             :
@@ -33,16 +40,29 @@ const Navbar = () => {
         </Link>
         <div className="flex md:order-2">
 
-          <Link
-            to="/sign-in"
-            className="bg-myOrange font-semibold text-white py-2 px-6 mr-4 rounded-full hover:bg-orange-600 "
-            animate={{ opacity : 100 }} 
-            initial={{ opacity : 0 }} 
-            transition={{ delay: 0.3 }}
-          >
-            Sign in
-          </Link>
-          <button data-collapse-toggle="mobile-menu-3" type="button" className="md:hidden text-gray-400 hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-300 rounded-lg inline-flex items-center justify-center" aria-controls="mobile-menu-3" aria-expanded="false">
+          <div
+              className="relative flex items-center justify-center py-2 mr-5 active:scale-95"
+              onClick={() => setShowCart(true)}            >
+              <MdShoppingBasket className="text-textColor text-2xl hover:text-myBlue cursor-pointer transition-all duration-400" />
+              {/* {cartItems && cartItems.length > 0 && (
+                <div className=" absolute -top-2 -right-2 w-5 h-5 rounded-full bg-cartNumBg flex items-center justify-center">
+                  <p className="text-xs text-white font-semibold">
+                    {cartItems.length}
+                  </p>
+                </div>
+              )} */}
+                <div className=" absolute -top-1 -right-2 w-4 h-4 rounded-full bg-myOrange flex items-center justify-center">
+                  <p className="text-xs text-white font-semibold">
+                    1
+                  </p>
+                </div>
+          </div>
+
+
+          <button data-collapse-toggle="mobile-menu-3" type="button" 
+            onClick={()=>{setIsOpen(!isOpen)}} 
+            className={`${isOpen ? 'rotate-90' : 'rotate-0'} ' md:hidden  transition-all duration-400 text-gray-400 hover:text-myBlue rounded-lg inline-flex items-center justify-center'`} aria-controls="mobile-menu-3" aria-expanded="false">
+            
             <span className="sr-only">Open main menu</span>
             <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
               <path fillRule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clipRule="evenodd"></path>

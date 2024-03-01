@@ -2,11 +2,15 @@ import { ArrowRightIcon, ArrowLeftIcon } from '@heroicons/react/24/solid';
 import { useState } from 'react';
 import Step1 from './Step1';
 import Step2 from './Step2';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { createUserWithEmailAndPassword } from 'firebase/auth';
+import { auth } from '../../../firebase/Firebase';
 
 export default function() {
   const [step, setStep] = useState(true);
   const [formData, setFormData] = useState({});
+  const navigate = useNavigate();
+
 
   const handleNext = () => {
     setStep(!step);
@@ -20,6 +24,15 @@ export default function() {
   const handleSubmit = (event) => {
     event.preventDefault();
     // handle form submission
+    createUserWithEmailAndPassword(auth, formData.email, formData.password)
+    .then((userCredential) => {
+      console.log(userCredential)
+      // Redirect to the dashboard page after logging in
+      navigate('/home', { replace: true });
+      })
+    .catch((error) => {
+      console.log('Error: ', error);
+    });
   };
 
   return (

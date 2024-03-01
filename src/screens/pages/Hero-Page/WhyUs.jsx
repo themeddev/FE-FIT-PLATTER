@@ -33,10 +33,10 @@ const WhyUs = () => {
           WHY CHOOSE US <br />FOR
           <span className="text-myOrange"> YOUR HEALTHY FOOD</span>
         </h3>
-        <p className="text-gray-500 font-Poppins md:w-2/5 md:m-auto w-full">We continue to consistently choose and maintain the quality of the fruit served so that it remains fresh and nutritious when you eat it.</p>
+        <p className="text-gray-500 font-Poppins md:w-2/5 md:m-auto mt-2 w-full">We continue to consistently choose and maintain the quality of the fruit served so that it remains fresh and nutritious when you eat it.</p>
       </motion.div>
 
-      <div className="flex flex-col lg:flex-row gap-10 pt-10 px-[10%]">
+      <div className="flex flex-col lg:flex-row lg:gap-6 gap-4 pt-10 px-[5%] ">
         {cardContent.map((item, index) => (
           <motion.div 
             initial={{ scaleZ: -100 , opacity: 0}}
@@ -44,7 +44,7 @@ const WhyUs = () => {
             transition={{ delay: 0.3 }}
 
             key={index}
-            className={`flex flex-col md:flex-row mt-6 text-gray-700 bg-white shadow-lg duration-300 bg-clip-border rounded-xl w-96 ${index === 1 ? 'shadow-[#FFE8C8]' : ''}`}
+            className={`flex flex-col md:flex-row mt-6 text-gray-700 bg-white shadow-lg duration-300 bg-clip-border rounded-xl xl:w-96 lg:w-80 w-full ${index === 1 ? 'shadow-[#FFE8C8]' : ''}`}
           >
             <div className="p-6">
               <div className="w-12 h-12 mb-4 text-myOrange">

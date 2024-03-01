@@ -1,16 +1,27 @@
-import { useNavigate } from "react-router-dom";
+import { BiSolidCartAdd } from "react-icons/bi";
 
-const FoodItem = ({ item }) => {
-    const navigate = useNavigate();
+const FoodItem = ({ item, setSelectedItem, setShowDetail }) => {
 
     return (
-        <div className="card card-compact w-80 bg-white hover:shadow-lg shadow-md">
-            <figure><img src={item.image} alt={item.category} /></figure>
+        <div
+            onClick={() => {
+                setSelectedItem(item)
+                setShowDetail(true)
+            }} 
+            className="card card-compact cursor-pointer w-64 lg:w-80 bg-white hover:shadow-lg shadow-md"
+        >
+            <figure>
+                <img className="hover:scale-105 duration-300" src={item.image} alt={item.category} />
+            </figure>
             <div className="card-body text-myBlue">
                 <h2 className="card-title ">{item.category}</h2>
                 <p>{item.calories} calories, {item.protein} g protein, {item.carbs} g carbs, {item.fat} g fat</p>
-                <div className="card-actions justify-end">
-                    <button className="btn px-5 rounded-3xl border-none text-white bg-myOrange font-Poppins">{item.price.toFixed(2)} $</button>
+                <div
+                    onClick={(e) => e.stopPropagation()} 
+                    className="card-actions py-3 justify-between items-center"
+                >
+                    <p className=" text-myOrange font-Poppins text-base font-semibold">{item.price.toFixed(2)} $</p>
+                    <span className="mr-2 hover:text-myOrange active:scale-95 hover:scale-105 duration-100"><BiSolidCartAdd size={30}/></span>
                 </div>
             </div>
         </div>

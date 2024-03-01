@@ -2,63 +2,73 @@ import { useEffect, useState } from 'react';
 import FoodItem from './FoodItem';
 import Skeleton from './Skeleton';
 import useFetch from '../../../../hooks/useFetch';
-
+import FoodDetail from './FoodDetail';
 
 const Food = () => {
-    const [menuTab, setMenuTab] = useState('Breakfast')
-    const [loading, setLoading] = useState(false)
+    const [loading, setLoading] = useState(false);
+    const [showDetail, setShowDetail] = useState(false);
+    const [selectedItem, setSelectedItem] = useState(null);
     const [foods] = useFetch();
 
-    //loading 
-    useEffect(() => {
-        setLoading(true)
-        setTimeout(() => {
-            setLoading(false)
-        },1000)
-    },[])
+    // Separate state for each section
+    const [menuTabs, setMenuTabs] = useState({
+        'section1': 'Pre-Workout',
+        'section2': 'Pre-Workout',
+        'section3': 'Pre-Workout',
+    });
 
-    //food menu tab 
-    const handleMenuTabs = (type) => {
-        setMenuTab(type)
-    }
+    // Loading
+    useEffect(() => {
+        setLoading(true);
+        setTimeout(() => {
+            setLoading(false);
+        }, 1000);
+    }, []);
+
+    // Food menu tab
+    const handleMenuTabs = (section, type) => {
+        setMenuTabs((prevTabs) => ({ ...prevTabs, [section]: type }));
+    };
+
+    const section = (title, subtitle, sectionId) => {
+        return (
+            <>
+                <div className='flex mt-8 justify-between items-center lg:mx-6 mx-auto lg:flex-row flex-col'>
+                    <div>
+                        <h3 className="font-Outfit text-2xl text-headersBlue font-semibold">
+                            {title}
+                        </h3>
+                        <p className="font-sans text-sm text-gray-500 ">
+                            {subtitle}
+                        </p>
+                    </div>
+                    {/* Food Menu tab */}
+                    <div className="bg-white lg:mr-3 mt-5 lg:mt-0 cursor-pointer w-96 flex items-center shadow-lg justify-center mx-auto py-2 rounded-3xl font-Outfit">
+                        <p className={menuTabs[sectionId] === 'Pre-Workout' ? "bg-myOrange text-white font-Outfit px-6 py-1 rounded-xl" : "bg-white text-myBlue px-6 py-1"} onClick={() => handleMenuTabs(sectionId, 'Pre-Workout')}>Pre-Workout</p>
+                        <p className={menuTabs[sectionId] === 'After-Workout' ? "bg-myOrange text-white font-Outfit px-8 py-1 rounded-xl" : "bg-white text-myBlue font-Outfit px-8 py-1"} onClick={() => handleMenuTabs(sectionId, 'After-Workout')}>After-Workout</p>
+                    </div>
+                </div>
+
+                {/* All foods */}
+                <div className="gap-10 mt-12 flex justify-center flex-row mx-auto flex-wrap">
+                    {foods.filter((item) => menuTabs[sectionId] === item.category).map((item, index) => (
+                        loading ? <Skeleton key={index} /> : <FoodItem key={index} item={item} setShowDetail={setShowDetail} setSelectedItem={setSelectedItem} />
+                    ))}
+                </div>
+            </>
+        );
+    };
 
     return (
-
         <div className="relative">
-            {/* SVG background */}
-            {/* <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 1440 320"
-                className="absolute top-[-20%] left-0 w-full h-auto "
-                style={{ zIndex: 1 }}
-            >
-                <path fill="#FFF6EA" fillOpacity="1" d="M0,64L80,96C160,128,320,192,480,202.7C640,213,800,171,960,154.7C1120,139,1280,149,1360,154.7L1440,160L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z"></path>
-            </svg>
-         */}
-        <section className="flex justify-center flex-col  gap-4 mx-auto bg-[#FFF6EA] p-[5%]  px-10">
-
-            <h3 className="font-Outfit text-2xl text-center mb-10 z-5 text-headersBlue font-semibold">
-                Menu Highlights
-            </h3>
-            {/* food Menu tab  */}
-            <div className="bg-white w-96 flex items-center shadow-lg justify-center mx-auto py-3 rounded-3xl  font-Outfit ">
-                <p className={menuTab === 'Breakfast' ? "bg-myOrange text-white font-Outfit px-6 py-1 rounded-xl" : "bg-white text-black px-6 py-1"} onClick={() => handleMenuTabs('Breakfast')}>Breakfast</p>
-                <p className={menuTab === 'Lunch' ? "bg-myOrange text-white font-Outfit px-8 py-1 rounded-xl" : "bg-white text-black font-Outfit px-8 py-1"} onClick={() => handleMenuTabs('Lunch')}>Lunch</p>
-                <p className={menuTab === 'Dinner' ? "bg-myOrange text-white font-Outfit px-8 py-1 rounded-xl" : "bg-white text-black font-Outfit px-8 py-1"} onClick={() => handleMenuTabs('Dinner')}>Dinner</p>
-            </div>
-
-            {/* all foods  */}
-            <div className="gap-10 mt-12 flex justify-center flex-row mx-auto flex-wrap">
-                {foods.filter((item) => menuTab === item.category).map((item, index) => (
-                    loading ? <Skeleton key={index} /> : <FoodItem key={index} item={item} />
-                ))}
-            </div>
-        </section>
-        
+            <section className='my-4 flex justify-center flex-col gap-4 mx-auto bg-[#FFF6EA] p-[5%] px-10 '>
+                {section('Organic Produce', 'Fresh organic fruits and vegetables from Bay Farm at great prices', 'section1')}
+                {section('Superfood Delights', 'Discover nutritious superfoods for a healthy lifestyle', 'section2')}
+                {section('Gourmet Treats', 'Indulge in gourmet fruits and vegetables for a delightful experience', 'section3')}
+            </section>
+            {showDetail && <FoodDetail showDetail={showDetail} setShowDetail={setShowDetail} item={selectedItem} />}
         </div>
-
-
-    )
-}
+    );
+};
 
 export default Food;

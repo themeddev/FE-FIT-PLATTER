@@ -19,8 +19,8 @@ const Step2 = ({formData, handleInputChange}) => {
           <div className="mb-4">
             <label htmlFor="activityLevel" className="block mb-2 text-sm font-medium text-gray-700">Activity Level</label>
             <select
-              id="activityLevel"
-              name="activityLevel"
+              id="activityLevel1"
+              name="activityLevel1"
               value={formData.activityLevel || ''}
               onChange={handleInputChange}
               className="w-full px-3 py-2 bg-InputBg border border-InputBg rounded-md outline-none focus:border-[#FC6212]"
@@ -32,8 +32,8 @@ const Step2 = ({formData, handleInputChange}) => {
           <div className="mb-4">
             <label htmlFor="activityLevel" className="block mb-2 text-sm font-medium text-gray-700">Activity Level</label>
             <select
-              id="activityLevel"
-              name="activityLevel"
+              id="activityLevel2"
+              name="activityLevel2"
               value={formData.activityLevel || ''}
               onChange={handleInputChange}
               className="w-full px-3 py-2 bg-InputBg border border-InputBg rounded-md outline-none focus:border-[#FC6212]"
@@ -45,8 +45,8 @@ const Step2 = ({formData, handleInputChange}) => {
           <div className="mb-4">
             <label htmlFor="activityLevel" className="block mb-2 text-sm font-medium text-gray-700">Activity Level</label>
             <select
-              id="activityLevel"
-              name="activityLevel"
+              id="activityLevel3"
+              name="activityLevel3"
               value={formData.activityLevel || ''}
               onChange={handleInputChange}
               className="w-full px-3 py-2 bg-InputBg border border-InputBg rounded-md outline-none focus:border-[#FC6212]"

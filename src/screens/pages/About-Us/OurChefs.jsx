@@ -37,7 +37,7 @@ const OurChefs = () => {
             key={index}
           >
             <div className="relative mx-4 mt-4 overflow-hidden shadow-lg bg-clip-border rounded-xl lg:h-64 h-48">
-                <img src={item.img} alt={item.name && 'A chef!'} />
+                <img className="hover:scale-105 transition duration-500 cursor-pointer" src={item.img} alt={item.name && 'A chef!'} />
             </div>
             <div className="p-6 text-center">
                 <h4 className="block mb-2 font-sans text-2xl antialiased font-semibold leading-snug tracking-normal text-headersBlue">
