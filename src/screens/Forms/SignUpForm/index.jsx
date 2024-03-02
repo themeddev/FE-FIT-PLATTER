@@ -36,21 +36,21 @@ export default function() {
   };
 
   return (
-    <div className="flex items-center justify-center h-screen bg-gray-40 " >    
-      <div className="w-4/5 p-10 bg-white rounded-lg shadow-md">
+    <div className="flex items-center justify-center h-screen px-10 bg-gray-40 " >    
+      <div className="w-4/5 px-10 py-6 bg-white rounded-lg shadow-md">
         <div className='flex flex-col	 items-center justify-center gap-4'>
         
         {/* Steppers */}
-        <div className='flex max-w-xs space-x-3  self-center'>
+        <div className='flex max-w-xs space-x-3 self-center'>
           {step ? (
               <>
-                <span className="w-12 h-1 rounded-sm bg-myOrange"></span>
-                <span className="w-12 h-1 rounded-sm bg-gray-100"></span>
+                <span className="w-14 h-1 rounded-sm bg-myOrange"></span>
+                <span className="w-14 h-1 rounded-sm bg-gray-100"></span>
               </>
             ) : (
-              <>
-                <span className="w-12 h-1 rounded-sm bg-myOrange"></span>
-                <span className="w-12 h-1 rounded-sm bg-myOrange"></span>
+              <> 
+                <span className="w-14 h-1 rounded-sm bg-myOrange"></span>
+                <span className="w-14 h-1 rounded-sm bg-myOrange"></span>
               </>
             )}
           </div>
@@ -79,15 +79,15 @@ export default function() {
           )}
 
           {/* Next button */}
-          <div className="mb-4 col-span-2 flex items-center justify-end">
+          <div className="mb-2 col-span-2 flex items-center justify-end">
             {step ? (
               <button
                 type="button"
                 onClick={handleNext}
-                className="btn-phone w-1/4 px-5 py-2 font-Poppins text-white bg-myOrange rounded-full hover:bg-orange-600 flex items-center justify-center"
+                className="btn-phone w-1/4 px-5 py-2 font-Poppins text-white bg-myOrange rounded-full hover:bg-orange-600 flex items-center justify-center shadow transition"
               >
                 NEXT
-                <ArrowRightIcon className="w-4 h-4 ml-2" />
+                <ArrowRightIcon fill="currentColor" className="w-4 h-4 ml-2" />
               </button>
             ) : (
               <>
@@ -96,7 +96,7 @@ export default function() {
                   onClick={handleNext}
                   className="btn-phone w-1/6 mr-3 px-5 py-2 font-Poppins text-white bg-[#525C60] rounded-full hover:bg-gray-600 flex items-center justify-center shadow transition"
                 >
-                  <ArrowLeftIcon className="w-4 h-4 mr-2" />
+                  <ArrowLeftIcon fill="currentColor" className="w-4 h-4 mr-2" />
                   BACK
                 </button>
                 <button
@@ -104,7 +104,7 @@ export default function() {
                   className="btn-phone w-1/4 px-5  py-2 font-Poppins text-white bg-myOrange rounded-full hover:bg-orange-600 flex items-center justify-center shadow transition"
                 >
                   SIGN UP
-                  <ArrowRightIcon className="w-4 h-4 ml-2" />
+                  <ArrowRightIcon fill="currentColor" className="w-4 h-4 ml-2" />
                 </button>
               </>
             )}

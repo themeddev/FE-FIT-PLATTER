@@ -3,7 +3,7 @@ const Step1 = ({formData, handleInputChange}) => {
     
     return ( 
         <>
-            <div className="mb-4">
+            <div className="mb-2">
                 <label htmlFor="fullname" className="block mb-2 text-sm font-medium text-gray-700">Full Name</label>
                 <input
                   type="text"
@@ -16,7 +16,7 @@ const Step1 = ({formData, handleInputChange}) => {
                 />
                 <p className="mt-1 text-xs text-red-500"></p>
               </div>
-              <div className="mb-4">
+              <div className="mb-2">
                 <label htmlFor="email" className="block mb-2 text-sm font-medium text-gray-700">Email</label>
                 <input
                   type="email"
@@ -29,7 +29,7 @@ const Step1 = ({formData, handleInputChange}) => {
                 />
                 <p className="mt-1 text-xs text-red-500"></p>
               </div>
-              <div className="mb-4">
+              <div className="mb-2">
                 <label htmlFor="age" className="block mb-2 text-sm font-medium text-gray-700">Age</label>
                 <input
                   type="number"
@@ -42,7 +42,7 @@ const Step1 = ({formData, handleInputChange}) => {
                 />
                 <p className="mt-1 text-xs text-red-500"></p>
               </div>
-              <div className="mb-4">
+              <div className="mb-2">
                 <label htmlFor="gender" className="block mb-2 text-sm font-medium text-gray-700">Gender</label>
                 <select
                   id="gender"
@@ -58,7 +58,7 @@ const Step1 = ({formData, handleInputChange}) => {
               </div>
               
               {/* Add similar blocks for other inputs (height, gender, telephone, allergies) */}
-              <div className="mb-4">
+              <div className="mb-2">
                 <label htmlFor="height" className="block mb-2 text-sm font-medium text-gray-700">Height(Cm)</label>
                 <input
                   type="number"
@@ -72,7 +72,7 @@ const Step1 = ({formData, handleInputChange}) => {
                 <p className="mt-1 text-xs text-red-500"></p>
               </div>
 
-              <div className="mb-4">
+              <div className="mb-2">
                 <label htmlFor="weight" className="block mb-2 text-sm font-medium text-gray-700">Weight(Kg)</label>
                 <input
                   type="number"
@@ -86,7 +86,7 @@ const Step1 = ({formData, handleInputChange}) => {
                 <p className="mt-1 text-xs text-red-500"></p>
               </div>
 
-              <div className="mb-4">
+              <div className="mb-2">
                 <label htmlFor="telephone" className="block mb-2 text-sm font-medium text-gray-700">Telephone</label>
                 <input
                   type="tel"
@@ -99,17 +99,18 @@ const Step1 = ({formData, handleInputChange}) => {
                 />
                 <p className="mt-1 text-xs text-red-500"></p>
               </div>
-              <div className="mb-4">
+
+              <div className="mb-2">
                 <label htmlFor="allergies" className="block mb-2 text-sm font-medium text-gray-700">Allergies</label>
-                <select
+                <input
+                  type="text"
                   id="allergies"
                   name="allergies"
                   value={formData.allergies || ''}
                   onChange={handleInputChange}
+                  placeholder="Enter allergies"
                   className="w-full px-3 py-2 bg-InputBg border border-InputBg rounded-md outline-none focus:border-[#FC6212]"
-                >
-                  {/* Add allergy options here */}
-                </select>
+                />
                 <p className="mt-1 text-xs text-red-500"></p>
               </div>
         </>

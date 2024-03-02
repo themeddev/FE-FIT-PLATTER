@@ -31,7 +31,7 @@ const Footer = () => {
                     </Link>
                 </div>
                 <div className="px-5 py-2">
-                    <Link to='/contact  ' className="text-base leading-6 text-gray-500 hover:text-myOrange">
+                    <Link to='/contact-us  ' className="text-base leading-6 text-gray-500 hover:text-myOrange">
                         Contact
                     </Link>
                 </div>
