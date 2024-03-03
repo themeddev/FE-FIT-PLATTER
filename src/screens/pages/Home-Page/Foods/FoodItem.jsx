@@ -1,7 +1,15 @@
 import { BiSolidCartAdd } from "react-icons/bi";
+import { addToCart } from "../../../../redux/CartSlice";
+import { useDispatch } from "react-redux";
 
 const FoodItem = ({ item, setSelectedItem, setShowDetail }) => {
 
+    const  dispatch = useDispatch();
+    
+    const handleAdd = (item) => {
+        dispatch(addToCart(item))
+    }
+    
     return (
         <div
             onClick={() => {
@@ -20,8 +28,20 @@ const FoodItem = ({ item, setSelectedItem, setShowDetail }) => {
                     onClick={(e) => e.stopPropagation()} 
                     className="card-actions py-3 justify-between items-center"
                 >
-                    <p className=" text-myOrange font-Poppins text-base font-semibold">{item.price.toFixed(2)} $</p>
-                    <span className="mr-2 hover:text-myOrange active:scale-95 hover:scale-105 duration-100"><BiSolidCartAdd size={30}/></span>
+                    <p             
+                        onClick={() => {
+                            setSelectedItem(item)
+                            setShowDetail(true)
+                        }}  
+                        className=" text-myOrange font-Poppins text-sm font-semibold underline">
+                        View Detail
+                    </p>
+                    <span 
+                        className="mr-2 hover:text-myOrange active:scale-95 hover:scale-105 duration-100"
+                        onClick={() => handleAdd(item)}
+                    >
+                            <BiSolidCartAdd size={30}/>
+                    </span>
                 </div>
             </div>
         </div>

@@ -2,12 +2,13 @@ import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import logo from '../../../../public/images/logo.png'
 import { MdShoppingBasket } from "react-icons/md";
+import { useSelector } from 'react-redux';
 
 
 const Navbar = ({setShowCart}) => {
   const [isSticky, setIsSticky] = useState(false);
   const [isOpen, setIsOpen] = useState(false)
-
+  const { cartList } = useSelector((state) => state.Cart);
   // Add sticky class to nav
   useEffect(() => {
     const handleScroll = () => {
@@ -44,18 +45,14 @@ const Navbar = ({setShowCart}) => {
               className="relative flex items-center justify-center py-2 mr-5 active:scale-95"
               onClick={() => setShowCart(true)}            >
               <MdShoppingBasket className="text-textColor text-2xl hover:text-myBlue cursor-pointer transition-all duration-400" />
-              {/* {cartItems && cartItems.length > 0 && (
-                <div className=" absolute -top-2 -right-2 w-5 h-5 rounded-full bg-cartNumBg flex items-center justify-center">
-                  <p className="text-xs text-white font-semibold">
-                    {cartItems.length}
-                  </p>
-                </div>
-              )} */}
+
+              {cartList && cartList.length > 0 && (
                 <div className=" absolute -top-1 -right-2 w-4 h-4 rounded-full bg-myOrange flex items-center justify-center">
                   <p className="text-xs text-white font-semibold">
-                    1
+                  {cartList.length}
                   </p>
                 </div>
+              )}
           </div>
 
 

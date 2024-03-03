@@ -7,7 +7,8 @@ const useFetch = () => {
     useEffect(() => {
         // Example food data
         const preWorkoutFoods = [
-            {
+            {   
+                id: 1,
                 category: "Pre-Workout",
                 calories: 400,
                 protein: 30,
@@ -22,6 +23,7 @@ const useFetch = () => {
                 price: 8
             },
             {
+                id: 2,
                 category: "Pre-Workout",
                 calories: 350,
                 protein: 25,
@@ -40,6 +42,7 @@ const useFetch = () => {
 
         const afterWorkoutFoods = [
             {
+                id: 3,
                 category: "After-Workout",
                 calories: 600,
                 protein: 40,
@@ -54,6 +57,7 @@ const useFetch = () => {
                 price: 12
             },
             {
+                id: 4,
                 category: "After-Workout",
                 calories: 500,
                 protein: 35,
