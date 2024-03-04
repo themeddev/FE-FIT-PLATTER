@@ -1,7 +1,7 @@
 import HeroCopy from "../Navbar-Footer/FirstSection";
 import RecommendationPg from "./RecommendationPg";
 import Recommendations from "./Recommendations";
-import img from '../../../../public/images/home.jpeg';
+import img from '../../../images/home.jpeg';
 import Food from "./Foods/Food";
 
 

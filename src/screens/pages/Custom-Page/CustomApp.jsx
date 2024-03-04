@@ -1,5 +1,5 @@
 import HeroCopy from "../Navbar-Footer/FirstSection";
-import img from '../../../../public/images/custom.jpeg'
+import img from '../../../images/custom.jpeg'
 
 const CustomApp = () => {
 

@@ -12,3 +12,17 @@
       @apply w-full mr-0 mb-2 text-xs;
     }
 }
+
+/* html {
+  scroll-behavior: smooth;
+} */
+
+/* @layer components {
+  * {
+    @apply scroll-smooth
+  }
+} */
+
+/* .scroll-smooth {
+  scroll-behavior: smooth;
+} */

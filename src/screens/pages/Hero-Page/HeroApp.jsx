@@ -1,3 +1,4 @@
+import Banner from "./Banner";
 import Comments from "./Comments";
 import HeroSection from "./HeroSection";
 // import Feature from "./Feature";
@@ -8,6 +9,7 @@ const HeroApp = () => {
     <>
         <HeroSection />
         <Comments />
+        <Banner />
         <WhyUs />
     </> 
     );

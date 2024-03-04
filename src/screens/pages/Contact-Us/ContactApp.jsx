@@ -1,6 +1,6 @@
 import HeroCopy from "../Navbar-Footer/FirstSection";
 import ContactForm from "./ContactForm";
-import img from '../../../../public/images/contact.jpeg'
+import img from '../../../images/contact.jpeg'
 
 const ContactUsApp = () => {
     

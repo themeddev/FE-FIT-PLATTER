@@ -1,6 +1,6 @@
 import { FaCircleRight } from "react-icons/fa6";
 import { motion } from 'framer-motion';
-import img from '../../../../public/images/hero.jpeg';
+import img from '../../../images/hero.jpeg';
 import { Link } from "react-router-dom";
 
 const HeroSection = () => {

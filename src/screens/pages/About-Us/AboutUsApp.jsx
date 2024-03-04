@@ -2,7 +2,7 @@ import HeroCopy from "../Navbar-Footer/FirstSection";
 import Map from "./Map";
 import OurChefs from "./OurChefs";
 import ServicesInfo from "./ServicesInfo";
-import img from '../../../../public/images/about.jpeg'
+import img from '../../../images/about.jpg'
 
 const AboutUsApp = () => {
 

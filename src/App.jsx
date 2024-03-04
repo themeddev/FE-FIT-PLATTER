@@ -12,7 +12,7 @@ import SignUpForm from './screens/Forms/SignUpForm';
 import { useEffect, useState } from 'react';
 import Cart from './screens/pages/Cart/Cart';
 import NotFound from './screens/pages/NotFound';
-import img from '../public/images/logo.png';
+import img from './images/logo.png';
 import ShowNF from './screens/pages/Navbar-Footer/ShowNF';
 
 const isAuthenticated = true;

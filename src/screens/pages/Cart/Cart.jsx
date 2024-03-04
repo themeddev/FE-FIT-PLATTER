@@ -2,7 +2,7 @@
 import { FaTimes } from "react-icons/fa";
 import CartProduct from "./CartProduct";
 import { motion } from "framer-motion";
-import EmptyCart from "../../../../public/emptyCart.svg";
+import EmptyCart from "../../../images/emptyCart.svg";
 import { useSelector } from "react-redux";
 
 const Cart = ({ showCart, setShowCart }) => {
