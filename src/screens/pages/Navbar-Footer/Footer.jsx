@@ -36,9 +36,9 @@ const Footer = () => {
                     </Link>
                 </div>
                 <div className="px-5 py-2">
-                    <a href="#" className="text-base leading-6 text-gray-500 hover:text-myOrange">
+                    <Link to="/terms" className="text-base leading-6 text-gray-500 hover:text-myOrange">
                         Terms
-                    </a>
+                    </Link>
                 </div>
             </nav>
 

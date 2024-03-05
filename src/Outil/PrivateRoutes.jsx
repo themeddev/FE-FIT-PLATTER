@@ -1,12 +1,15 @@
-import { useState } from "react";
 import { Navigate, Outlet } from "react-router-dom";
 
-const PrivateRoute = ({ Component }) => {
- 
-const [isAuthenticated, setIsAuthenticated] = useState(false);
+const PrivateRoute = ({ children }) => {
 
- // Your authentication logic goes here...
+  const user = localStorage.getItem('user') ? JSON.parse(localStorage.getItem('user')) : null;
+
  
-  return isAuthenticated ? <Outlet /> : <Navigate to="/login" />;
+  if (user) {
+    return children;
+  }
+
+  return <Navigate to="/sign-in" />;
+
 };
 export default PrivateRoute;

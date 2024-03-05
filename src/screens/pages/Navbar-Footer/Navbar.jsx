@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import logo from '../../../images/logo.png';
 import { MdShoppingBasket } from 'react-icons/md';
 import { useSelector } from 'react-redux';
@@ -8,6 +8,8 @@ const Navbar = ({ setShowCart }) => {
   const [isSticky, setIsSticky] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const { cartList } = useSelector((state) => state.Cart);
+  const user = localStorage.getItem('user') ? JSON.parse(localStorage.getItem('user')) : null;
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -24,6 +26,17 @@ const Navbar = ({ setShowCart }) => {
     };
   }, []);
 
+
+  const handleLogout = () => {
+    // Add any additional logout logic here
+
+    // Clear user information from local storage
+    localStorage.removeItem('user');
+
+    // Redirect to the login page
+    navigate('/sign-in', { replace: true });
+  };
+  
   return (
     <div className="flex justify-center h-20">
       <div
@@ -41,21 +54,52 @@ const Navbar = ({ setShowCart }) => {
               </span>
             )}
           </Link>
+          
           <div className="flex md:order-2">
-            <div
-              className="relative flex items-center justify-center py-2 mr-5 active:scale-95"
-              onClick={() => setShowCart(true)}
-            >
-              <MdShoppingBasket className="text-textColor text-2xl hover:text-myBlue cursor-pointer transition-all duration-400" />
+            
+            {/* Check if the user is logged in */}
+            {!user ? (
+              // If not logged in, display styled login and sign-up buttons
+              <>
+                <Link
+                  to="/sign-in"
+                  className="text-white bg-myOrange font-Outfit py-2 px-4 rounded-full  hover:bg-myBlue duration-150"
+                >
+                  Login
+                </Link>
+                <Link
+                  to="/sign-up"
+                  className="text-myBlue bg-white px-4 py-2 rounded-full hover:bg-gray-100 duration-150"
+                >
+                  Sign-Up
+                </Link>
+              </>
+            ) : (
+              // If logged in, display styled logout button
+              <>
 
-              {cartList && cartList.length > 0 && (
-                <div className="absolute -top-1 -right-2 w-4 h-4 rounded-full bg-myOrange flex items-center justify-center">
-                  <p className="text-xs text-white font-semibold">
-                    {cartList.length}
-                  </p>
-                </div>
-              )}
-            </div>
+                <div
+                    className="relative flex items-center justify-center py-2 mr-3 active:scale-95"
+                    onClick={() => setShowCart(true)}
+                  >
+                    <MdShoppingBasket className="text-textColor text-2xl hover:text-myBlue cursor-pointer transition-all duration-400" />
+                
+                    {cartList && cartList.length > 0 && (
+                      <div className="absolute -top-1 -right-2 w-4 h-4 rounded-full bg-myOrange flex items-center justify-center">
+                        <p className="text-xs text-white font-semibold">
+                          {cartList.length}
+                        </p>
+                      </div>
+                    )}
+                  </div>
+                  <button
+                    onClick={handleLogout}
+                    className="text-myBlue bg-white px-4 py-2 rounded-full hover:bg-gray-100 duration-150"
+                  >
+                    Logout
+                  </button>
+                </>
+            )}
 
             <button
               data-collapse-toggle="mobile-menu-3"
@@ -99,6 +143,7 @@ const Navbar = ({ setShowCart }) => {
             id="mobile-menu-3"
           >
             <ul className="flex-col md:flex-row flex md:space-x-8 mt-4 md:mt-0 md:text-sm md:font-medium z-20">
+              
               <li>
                 <Link
                   to="/home"
@@ -116,6 +161,8 @@ const Navbar = ({ setShowCart }) => {
                   Custom
                 </Link>
               </li>
+
+
               <li>
                 <Link
                   to={'/about-us'}

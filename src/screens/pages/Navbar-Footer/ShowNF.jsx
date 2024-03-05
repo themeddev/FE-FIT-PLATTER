@@ -1,19 +1,12 @@
-import { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 
 const ShowNF = ({ children }) => {
   const location = useLocation();
-  const [show, setShow] = useState(true);
+  const excludedPaths = ["/", "/home", "/custom", "/about-us", "/contact-us"];
 
-  useEffect(() => {
-    if (location.pathname === "/sign-in" || location.pathname === "/sign-up") {
-      setShow(false);
-    } else {
-      setShow(true);
-    }
-  }, [location.pathname]);
+  const shouldShowNavbar = excludedPaths.includes(location.pathname);
 
-  return show ? children : null;
+  return shouldShowNavbar ? children : null;
 };
 
 export default ShowNF;

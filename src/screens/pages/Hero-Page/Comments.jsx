@@ -6,28 +6,30 @@ const Comments = () => {
     {
       id: 1,
       fullName: "Jonathan Reinink",
-      description:"We are very happy if you are satisfied with our service and products, lets read pure reviews from customers who bought our products. ",
-      imageSrc:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQAX8p-KrjIxVpsOGeFKJZJR9OVa2tMXyQAlCxT7O-qFqKa242hbZLlOooixmQsvpievEg&usqp=CAU",
+      description: "I am extremely impressed with the quality of products and services provided by this company. The attention to detail and customer satisfaction is unparalleled.",
+      imageSrc: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQAX8p-KrjIxVpsOGeFKJZJR9OVa2tMXyQAlCxT7O-qFqKa242hbZLlOooixmQsvpievEg&usqp=CAU",
     },
     {
       id: 2,
       fullName: "Selena Gomez",
-      description:"We are very happy if you are satisfied with our service and products, lets read pure reviews from customers who bought our products. ",
-      imageSrc:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSDWw8Vdm9JSAzsSu6MANcNR3pE0wZOISapEA&usqp=CAU",
+      description: "The service and products offered by this company exceeded my expectations. The team is dedicated to providing top-notch quality.",
+      imageSrc: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSDWw8Vdm9JSAzsSu6MANcNR3pE0wZOISapEA&usqp=CAU",
     },
     {
       id: 3,
       fullName: "Kylie Jenner",
-      description:"We are very happy if you are satisfied with our service and products, lets read pure reviews from customers who bought our products. ",
-      imageSrc:"https://media.allure.com/photos/6543f5a166ac0a71e8d7612f/16:9/w_1280,c_limit/kylie%20jenner%202023.jpg",
+      description: "I am a satisfied customer who received excellent service and high-quality products. The team's commitment to customer satisfaction is evident.",
+      imageSrc: "https://media.allure.com/photos/6543f5a166ac0a71e8d7612f/16:9/w_1280,c_limit/kylie%20jenner%202023.jpg",
     },
     {
       id: 4,
       fullName: "Achraf Moreau",
-      description:"We are very happy if you are satisfied with our service and products, lets read pure reviews from customers who bought our products. ",
-      imageSrc:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQdQ5l2EY2K5M3MlQ5tM5Qql2lKeWARb-oacc90zJS20g&s",
+      description: "The level of professionalism and quality provided by this company is outstanding. From start to finish, the experience was seamless.",
+      imageSrc: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQdQ5l2EY2K5M3MlQ5tM5Qql2lKeWARb-oacc90zJS20g&s",
     },
-  ]
+  ];
+  
+  
 
 
   const [currentCardIndex, setCurrentCardIndex] = useState(0);
@@ -104,7 +106,7 @@ const Comments = () => {
         animate={{x: 0, opacity : 1}}
         transition={{ delay: 0.6 }} 
       >  
-        <div className="carousel carousel-center md:max-w-xl max-w-md p-4 space-x-3 rounded-box">
+        <div className="carousel carousel-center sm:max-w-xl max-w-md p-4 space-x-3 rounded-box">
           <div className="carousel-item">
             {CardContent &&
               CardContent.map((item, index) => (

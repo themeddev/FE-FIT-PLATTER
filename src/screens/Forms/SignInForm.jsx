@@ -1,25 +1,28 @@
-import { useState } from 'react';
-import { ArrowRightIcon } from '@heroicons/react/24/solid'
+// Import the necessary dependencies
+import { useState, useEffect } from 'react';
+import { ArrowRightIcon } from '@heroicons/react/24/solid';
 import { useNavigate, Link } from 'react-router-dom';
 import { auth } from '../../firebase/Firebase';
 import { signInWithEmailAndPassword } from 'firebase/auth';
+
+// Function to save user information in local storage
+const saveUserToLocalStorage = (user) => {
+  localStorage.setItem('user', JSON.stringify(user));
+};
+
+// SignInForm component
 export default function SignInForm() {
-  // Initialize the state with empty values and errors
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [errors, setErrors] = useState({
     email: '',
     password: '',
   });
-  const [ loading, setLoading ] = useState(false);
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
-  // Handle the change of the input values
   const handleChange = (event) => {
-    // Get the name and value of the input
     const { name, value } = event.target;
-
-    // Set the state with the new value
     if (name === 'email') {
       setEmail(value);
     } else if (name === 'password') {
@@ -27,47 +30,50 @@ export default function SignInForm() {
     }
   };
 
-
-  // Handle the submission of the form
   const handleSubmit = (event) => {
-    // Prevent the default behavior of the form
     event.preventDefault();
     setLoading(true);
 
-    // Validate the input values
     const errors = {};
 
-    // Check if the email is valid
     if (!email.match(/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/)) {
       errors.email = 'Please enter a valid email address';
       setLoading(false);
     }
 
-    // Check if the password is not empty
     if (!password || password.length < 8) {
       errors.password = 'Password must be at least 8 characters';
       setLoading(false);
     }
 
-    // If there are no errors, submit the form
     if (Object.keys(errors).length === 0) {
       signInWithEmailAndPassword(auth, email, password)
-      .then((userCredential) => {
-        console.log(userCredential)
-        setLoading(false);
-        // Redirect to the dashboard page after logging in
-        navigate('/home', { replace: true });
+        .then((userCredential) => {
+          console.log(userCredential);
+
+          // Save user information in local storage
+          saveUserToLocalStorage(userCredential.user);
+
+          setLoading(false);
+          navigate('/home', { replace: true });
         })
-      .catch((error) => {
-        console.log('Error: ', error);
-        errors.email = 'Invalid Email or Password';
-        setLoading(false);
-      });
+        .catch((error) => {
+          console.log('Error: ', error);
+          errors.email = 'Invalid Email or Password';
+          setLoading(false);
+        });
     }
-      // Set the state with the errors
+
     setErrors(errors);
- 
-  }; 
+  };
+
+  useEffect(() => {
+    // Check if the user is already logged in
+    const userFromLocalStorage = JSON.parse(localStorage.getItem('user'));
+    if (userFromLocalStorage) {
+      navigate('/home', { replace: true });
+    }
+  }, [navigate]);
 
 
   // Render the component
