@@ -15,22 +15,21 @@ Node.js: Ensure Node.js is installed on your machine. You can download it [here]
 ### Clone the Repository
 
     ```bash
-    git clone https://github.com/themeddev/FE-FIT-PLATTER.git
-    cd FE-FIT-PLATTER
+        git clone https://github.com/themeddev/FE-FIT-PLATTER.git
+        cd FE-FIT-PLATTER
     ```
 
 ### Install Dependencies
 
     ```bash
-    npm install
+        npm install
 
     ```
 
 ### Run the App
 
     ```bash
-    npm run dev
-
+        npm run dev
     ```
 
 This will start the development server, and you can access the app at http://localhost:3000.
@@ -40,7 +39,7 @@ This will start the development server, and you can access the app at http://loc
 To build the app for production, use the following command:
 
     ```bash
-    npm run build
+        npm run build
 
     ```
 
