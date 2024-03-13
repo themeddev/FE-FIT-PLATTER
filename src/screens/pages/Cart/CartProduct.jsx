@@ -19,7 +19,7 @@ const CartProduct = ({ el }) => {
           <p className="text-gray-600">{el.quantity} x {el.price} $</p>
         </div>
       </div>
-      <div onClick={handleRemove} className="cursor-pointer">
+      <div onClick={handleRemove} className="text-gray-400 hover:text-myBlue cursor-pointer">
         <FaTimes />
       </div>
     </div>

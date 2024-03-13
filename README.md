@@ -2,29 +2,36 @@
 
 Fit Platter is a dynamic web application created using React and Vite, designed to provide personalized sports-centric meal recommendations. Leverage the power of modern frontend technologies to enhance your fitness journey with customized nutrition.
 
+<center>
+    <img src="./src/images/screenshot.webp" alt="FIT PLATTER overview" />
+</center>
+
 ## Installation Guide
 
 ### Prerequisites
- Node.js: Ensure Node.js is installed on your machine. You can download it [here](https://nodejs.org/).
 
+Node.js: Ensure Node.js is installed on your machine. You can download it [here](https://nodejs.org/).
 
 ### Clone the Repository
 
-```bash
-git clone https://github.com/themeddev/FE-FIT-PLATTER.git
-cd FE-FIT-PLATTER
-```
+    ```bash
+    git clone https://github.com/themeddev/FE-FIT-PLATTER.git
+    cd FE-FIT-PLATTER
+    ```
 
 ### Install Dependencies
-```bash	
-npm install
 
-Run the App
+    ```bash
+    npm install
 
-npm run dev
+    ```
 
-```
+### Run the App
 
+    ```bash
+    npm run dev
+
+    ```
 
 This will start the development server, and you can access the app at http://localhost:3000.
 
@@ -32,14 +39,15 @@ This will start the development server, and you can access the app at http://loc
 
 To build the app for production, use the following command:
 
-```bash 
-npm run build 
+    ```bash
+    npm run build
 
-```
+    ```
 
 This will generate optimized production-ready assets in the dist directory.
 
 ### App Structure
+
 src/components: Contains React components used throughout the app.
 src/pages: Houses individual pages and their components.
 src/utils: Includes utility functions and helper modules.
